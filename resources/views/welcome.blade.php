@@ -54,7 +54,7 @@
 
                                         <br><br>
 
-                                        <a class="underline" href="https://discord.com/oauth2/authorize?client_id={{env("DISCORD_CLIENT_ID")}}&redirect_uri={{env("DISCORD_REDIRECT_URI")}}&response_type=code&scope=identify%20email">Authenticate with Discord</a>
+                                        <a class="underline" href="https://discord.com/oauth2/authorize?client_id={{config("discord.client_id")}}&redirect_uri={{config("discord.redirect_url")}}&response_type=code&scope=identify%20email">Authenticate with Discord</a>
                                     @endauth
                                 </div>
                             </div>

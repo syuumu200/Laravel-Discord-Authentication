@@ -28,10 +28,10 @@ class DiscordController extends Controller
         if (Auth::check()) {return redirect() -> route("index");};
         if ($request -> missing("code") && $request -> missing("access_token")) {return redirect() -> route("index");};
 
-        $this -> tokenData["client_id"] = env("DISCORD_CLIENT_ID");
-        $this -> tokenData["client_secret"] = env("DISCORD_CLIENT_SECRET");
+        $this -> tokenData["client_id"] = config("discord.client_id");
+        $this -> tokenData["client_secret"] = config("discord.client_secret");
         $this -> tokenData["code"] = $request -> get("code");
-        $this -> tokenData["redirect_uri"] = env("DISCORD_REDIRECT_URI");
+        $this -> tokenData["redirect_uri"] = config("discord.redirect_url");
 
         $client = new GuzzleHttp\Client();
         
