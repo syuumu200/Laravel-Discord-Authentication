@@ -34,10 +34,10 @@ class DiscordController extends Controller
         $this -> tokenData["redirect_uri"] = config("discord.redirect_url");
 
         $client = new GuzzleHttp\Client();
-        
+
         try {
             $accessTokenData = $client -> post($this -> tokenURL, ["form_params" => $this -> tokenData]);
-            $accessTokenData = json_decode($accessTokenData -> getBody());   
+            $accessTokenData = json_decode($accessTokenData -> getBody());
         } catch (\GuzzleHttp\Exception\ClientException $error) {
             return redirect() -> route("index");
         };

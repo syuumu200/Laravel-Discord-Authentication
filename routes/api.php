@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Discord Authentication \\
+
 Route::get('login', [App\Http\Controllers\DiscordController::class, 'login'])
     -> name('login');
 Route::get('logout', [App\Http\Controllers\DiscordController::class, 'logout'])
