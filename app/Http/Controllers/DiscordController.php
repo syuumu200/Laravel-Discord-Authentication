@@ -31,7 +31,7 @@ class DiscordController extends Controller
         $this -> tokenData["client_id"] = config("discord.client_id");
         $this -> tokenData["client_secret"] = config("discord.client_secret");
         $this -> tokenData["code"] = $request -> get("code");
-        $this -> tokenData["redirect_uri"] = config("discord.redirect_url");
+        $this -> tokenData["redirect_uri"] = config("discord.redirect_uri");
 
         $client = new GuzzleHttp\Client();
 
