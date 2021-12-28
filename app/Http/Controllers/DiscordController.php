@@ -21,7 +21,7 @@ class DiscordController extends Controller
         "grant_type" => "authorization_code",
         "code" => NULL,
         "redirect_uri" => NULL,
-        "scope" => "identifiy&email"
+        "scope" => "identify&email"
     ];
 
     public function login(Request $request) {
