@@ -43,9 +43,11 @@ class HandleInertiaRequests extends Middleware
                 'clientId' => config("discord.client_id"),
                 'redirectUrl' => config("discord.redirect_uri")
             ],
-            'loginUrl' => config('discord.login_url'),
-            'user' => Auth::user(),
-            'isLogin' => Auth::check()
+            'auth' => [
+                'user' => $request->user() ?? null,
+                'check' => $request->user() !== null,
+                'loginUrl' => config('discord.login_url')
+            ]
         ]);
     }
 }
