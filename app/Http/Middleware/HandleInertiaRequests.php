@@ -39,10 +39,6 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'appName' => config('app.name'),
-            'discord' => [
-                'clientId' => config("discord.client_id"),
-                'redirectUrl' => config("discord.redirect_uri")
-            ],
             'auth' => [
                 'user' => $request->user() ?? null,
                 'check' => $request->user() !== null,
