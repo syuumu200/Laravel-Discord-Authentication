@@ -35,9 +35,6 @@ export default defineComponent({
     components: {
         Head,
         Link
-    },
-    created: function() {
-      console.log(this.$page.props.user)
     }
 })
 </script>
