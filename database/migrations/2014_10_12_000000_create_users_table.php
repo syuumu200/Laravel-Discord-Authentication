@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('username');
             $table->string('discriminator');
-            $table->string('email');
+            // $table->string('email'); //必要ならコメントアウトしてください。
             $table->string('avatar')->nullable();
             $table->boolean('verified');
             $table->string('locale');
