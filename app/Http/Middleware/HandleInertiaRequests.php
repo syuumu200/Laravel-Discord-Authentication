@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Syuumu200\DiscordOauth2LoginUrl;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -41,7 +42,10 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user() ?? null,
                 'check' => $request->user() !== null,
-                'loginUrl' => config('discord.login_url')
+                'loginUrl' => DiscordOauth2LoginUrl::generate(
+                    config('discord.client_id'),
+                    config('discord.redirect_uri')
+                )
             ]
         ]);
     }
