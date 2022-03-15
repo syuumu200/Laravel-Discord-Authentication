@@ -16,9 +16,6 @@ import {
     Link
 } from '@inertiajs/inertia-vue3';
 import AppLayout from '@/Layouts/AppLayout.vue'
-import {
-    v4 as uuidv4
-} from "uuid";
 
 export default defineComponent({
     data() {
