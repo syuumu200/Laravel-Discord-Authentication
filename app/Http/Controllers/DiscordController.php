@@ -24,54 +24,61 @@ class DiscordController extends Controller
         "scope" => "identify&email"
     ];
 
-    public function login(Request $request) {
-        if (Auth::check()) {return redirect() -> route("index");};
-        if ($request -> missing("code") && $request -> missing("access_token")) {return redirect() -> route("index");};
+    public function login(Request $request)
+    {
+        if (Auth::check()) {
+            return redirect()->route("index");
+        };
+        if ($request->missing("code") && $request->missing("access_token")) {
+            return redirect()->route("index");
+        };
 
-        $this -> tokenData["client_id"] = config("discord.client_id");
-        $this -> tokenData["client_secret"] = config("discord.client_secret");
-        $this -> tokenData["code"] = $request -> get("code");
-        $this -> tokenData["redirect_uri"] = config("discord.redirect_uri");
+        $this->tokenData["client_id"] = config("discord.client_id");
+        $this->tokenData["client_secret"] = config("discord.client_secret");
+        $this->tokenData["code"] = $request->get("code");
+        $this->tokenData["redirect_uri"] = config("discord.redirect_uri");
 
         $client = new GuzzleHttp\Client();
 
         try {
-            $accessTokenData = $client -> post($this -> tokenURL, ["form_params" => $this -> tokenData]);
-            $accessTokenData = json_decode($accessTokenData -> getBody());
+            $accessTokenData = $client->post($this->tokenURL, ["form_params" => $this->tokenData]);
+            $accessTokenData = json_decode($accessTokenData->getBody());
         } catch (\GuzzleHttp\Exception\ClientException $error) {
-            return redirect() -> route("index");
+            return redirect()->route("index");
         };
 
-        $userData = Http::withToken($accessTokenData -> access_token) -> get($this -> apiURLBase);
-        if ($userData -> clientError() || $userData -> serverError()) {return redirect() -> route("index");};
+        $userData = Http::withToken($accessTokenData->access_token)->get($this->apiURLBase);
+        if ($userData->clientError() || $userData->serverError()) {
+            return redirect()->route("index");
+        };
 
         $userData = json_decode($userData);
 
         $user = User::updateOrCreate(
             [
-                'id' => $userData -> id,
+                'id' => $userData->id,
             ],
             [
-                'username' => $userData -> username,
-                'discriminator' => $userData -> discriminator,
-                'email' => $userData -> email,
-                'avatar' => $userData -> avatar,
-                'verified' => $userData -> verified,
-                'locale' => $userData -> locale,
-                'mfa_enabled' => $userData -> mfa_enabled,
-                'refresh_token' => $accessTokenData -> refresh_token
+                'username' => $userData->username,
+                'discriminator' => $userData->discriminator,
+                'avatar' => $userData->avatar,
+                'verified' => $userData->verified,
+                'locale' => $userData->locale,
+                'mfa_enabled' => $userData->mfa_enabled,
+                'refresh_token' => $accessTokenData->refresh_token
             ]
         );
 
         Auth::login($user);
 
-        return redirect() -> route("index");
+        return redirect()->route("index");
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         Auth::logout();
-        $request -> session() -> invalidate();
+        $request->session()->invalidate();
 
-        return redirect() -> route("index");
+        return redirect()->route("index");
     }
 }
