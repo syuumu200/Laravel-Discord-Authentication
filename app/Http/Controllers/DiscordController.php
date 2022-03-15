@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Crypt;
 use \GuzzleHttp;
-use Session;
 use Auth;
-
+use Inertia\Inertia;
 use App\Models\User;
 
 class DiscordController extends Controller
@@ -30,7 +28,12 @@ class DiscordController extends Controller
             return redirect()->route("index");
         };
         if ($request->missing("code") && $request->missing("access_token")) {
-            return redirect()->route("index");
+            $url = DiscordOauth2LoginUrl::generate(
+                config('discord.client_id'),
+                config('discord.redirect_uri'),
+                $request->session()->get('state')
+            );
+            return $request->hasHeader('X-Inertia') ? Inertia::location($url) : redirect()->away($url);
         };
 
         $this->tokenData["client_id"] = config("discord.client_id");
