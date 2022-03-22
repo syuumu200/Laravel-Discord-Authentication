@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use \GuzzleHttp;
-use Auth;
+use \Auth;
 use Inertia\Inertia;
 use App\Models\User;
 use Syuumu200\DiscordOauth2LoginUrl;
