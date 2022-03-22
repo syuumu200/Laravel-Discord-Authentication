@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\{
+        DiscordController
+};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +14,7 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-        return Inertia::render('Welcome');
-})->name('index');
+Route::inertia('/', 'Welcome')->name('index');
+
+Route::get('login', [DiscordController::class, 'login'])->name('login');
+Route::get('logout', [DiscordController::class, 'logout'])->name('logout');

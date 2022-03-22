@@ -41,11 +41,7 @@ class HandleInertiaRequests extends Middleware
             'appName' => config('app.name'),
             'auth' => [
                 'user' => $request->user() ?? null,
-                'check' => $request->user() !== null,
-                'loginUrl' => DiscordOauth2LoginUrl::generate(
-                    config('discord.client_id'),
-                    config('discord.redirect_uri')
-                )
+                'check' => $request->user() !== null
             ]
         ]);
     }

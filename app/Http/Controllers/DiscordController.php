@@ -8,6 +8,7 @@ use \GuzzleHttp;
 use Auth;
 use Inertia\Inertia;
 use App\Models\User;
+use Syuumu200\DiscordOauth2LoginUrl;
 
 class DiscordController extends Controller
 {
@@ -74,7 +75,7 @@ class DiscordController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route("index");
+        return redirect(urldecode($request->input('state')));
     }
 
     public function logout(Request $request)
