@@ -14,7 +14,8 @@
         "inertiajs/inertia-laravel": "^0.5.4",
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.5",
-        "syuumu200/discord-oauth2-login-url": "dev-master"
+        "syuumu200/discord-oauth2-login-url": "dev-master",
+        "tightenco/ziggy": "^1.4"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",
