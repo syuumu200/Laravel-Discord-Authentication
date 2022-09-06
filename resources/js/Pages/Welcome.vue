@@ -1,6 +1,7 @@
 <template>
   <AppLayout>
     <p class="text-center">LaravelとInertiaとDiscord Oauth2を統合しました！</p>
+    {{ $route("login") }}
   </AppLayout>
 </template>
 
