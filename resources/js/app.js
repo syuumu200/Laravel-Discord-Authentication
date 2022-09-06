@@ -6,7 +6,9 @@ import { InertiaProgress } from '@inertiajs/progress'
 createInertiaApp({
   resolve: name => require(`./Pages/${name}`),
   setup({ el, App, props, plugin }) {
-    createSSRApp({ render: () => h(App, props) })
+    const Vue = createSSRApp({ render: () => h(App, props) })
+    Vue.config.globalProperties.$route = route
+    Vue
       .use(plugin)
       .mount(el)
   },
