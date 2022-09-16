@@ -16,10 +16,10 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('username');
-            $table->string('discriminator');
+            $table->unsignedSmallInteger('discriminator');
             // $table->string('email'); //必要ならコメントアウトしてください。
             $table->string('avatar')->nullable();
-            $table->boolean('verified');
+            $table->boolean('verified')->default(false);
             $table->string('locale');
             $table->boolean('mfa_enabled');
             $table->string('refresh_token')->nullable();
