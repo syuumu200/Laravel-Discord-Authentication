@@ -66,7 +66,7 @@ class User extends Authenticatable
     protected function stringId(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => (string) $this->id,
+            get: fn () => (string) $this->id,
         );
     }
 }
