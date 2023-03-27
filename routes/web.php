@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{
+use App\Http\Controllers\Auth\{
         DiscordController
 };
+use App\Http\Middleware\Authenticate;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +17,7 @@ use App\Http\Controllers\{
 |
 */
 Route::inertia('/', 'Welcome')->name('index');
+Route::inertia('/test', 'Test')->middleware(Authenticate::class);
 
 Route::get('login', [DiscordController::class, 'login'])->name('login');
 Route::get('logout', [DiscordController::class, 'logout'])->name('logout');
