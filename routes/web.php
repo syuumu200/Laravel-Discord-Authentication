@@ -17,7 +17,6 @@ use App\Http\Middleware\Authenticate;
 |
 */
 Route::inertia('/', 'Welcome')->name('index');
-Route::inertia('/test', 'Test')->middleware(Authenticate::class);
 
 Route::get('login', [DiscordController::class, 'login'])->name('login');
 Route::get('logout', [DiscordController::class, 'logout'])->name('logout');
