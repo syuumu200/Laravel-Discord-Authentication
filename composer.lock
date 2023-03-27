@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6390ca81e5a341bbe6e8c065be83cdf0",
+    "content-hash": "81aa9e0397e5b7dc6f3aac109007cb57",
     "packages": [
         {
             "name": "brick/math",
@@ -5494,54 +5494,6 @@
             "time": "2023-02-24T10:42:00+00:00"
         },
         {
-            "name": "syuumu200/discord-oauth2-login-url",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/syuumu200/discord-oauth2-login-url.git",
-                "reference": "bff255ffc41dfda9205a69dad88575dc288be89c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/syuumu200/discord-oauth2-login-url/zipball/bff255ffc41dfda9205a69dad88575dc288be89c",
-                "reference": "bff255ffc41dfda9205a69dad88575dc288be89c",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "^7.3|^8.0|^9.0",
-                "php": "^7.0|^8.0"
-            },
-            "default-branch": true,
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Syuumu200\\DiscordOauth2LoginUrl\\DiscordOauth2LoginUrlServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/DiscordOauth2LoginUrl.php"
-                ],
-                "psr-4": {
-                    "Syuumu200\\DiscordOauth2LoginUrl\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "syuumu",
-                    "email": "syuumu200@gmail.com"
-                }
-            ],
-            "support": {
-                "issues": "https://github.com/syuumu200/discord-oauth2-login-url/issues",
-                "source": "https://github.com/syuumu200/discord-oauth2-login-url/tree/v1.0.1"
-            },
-            "time": "2022-02-11T19:44:53+00:00"
-        },
-        {
             "name": "tightenco/ziggy",
             "version": "v1.5.0",
             "source": {
@@ -8340,9 +8292,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "syuumu200/discord-oauth2-login-url": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -16,7 +16,6 @@
         "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.5",
         "socialiteproviders/discord": "^4.1",
-        "syuumu200/discord-oauth2-login-url": "dev-master",
         "tightenco/ziggy": "^1.4"
     },
     "require-dev": {
