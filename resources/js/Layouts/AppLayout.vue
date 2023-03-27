@@ -5,12 +5,7 @@
       <Link :href="$route('index')">{{ $page.props.appName }}</Link>
     </h1>
     <div class="text-center">
-      <Link
-        v-if="!$page.props.auth.check"
-        class="underline text-center"
-        :href="$route('login')"
-        >Discordでログイン</Link
-      >
+      <Link v-if="!$page.props.auth.check" class="underline text-center" :href="$route('login')">Discordでログイン</Link>
       <div v-else class="text-center">
         <span>
           <span class="mr-1">Hi</span>
@@ -25,12 +20,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import { Head, Link } from "@inertiajs/inertia-vue3";
 
 export default defineComponent({
-  components: {
-    Head,
-    Link,
-  },
 });
 </script>
