@@ -75,7 +75,7 @@ class DiscordController extends Controller
 
         Auth::login($user);
 
-        return redirect(urldecode($request->input('state')));
+        return redirect($request->session()->get('before_auth_url', '/'));
     }
 
     public function logout(Request $request)
